@@ -27,11 +27,12 @@ $(function () { $.responsiveImageLoader(); });
             plugin.loadData();
             plugin.checkImages($(window).innerWidth());
             
+            
             //set window resize event to load bigger images if needed
             var resizeTimer;
             $(window).resize(function () {
                 clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(function () { plugin.checkImages($(window).innerWidth()); }, 250);
+                resizeTimer = setTimeout(function () { plugin.checkImages($(window).innerWidth()); }, 200);
             });
         },
         loadData: function () {

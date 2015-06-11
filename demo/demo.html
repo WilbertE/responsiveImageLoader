@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Demo page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        html, body{
+            width:100%;
+            font-family: Verdana, Geneva, 'DejaVu Sans', sans-serif;
+            line-height: 1.6
+        }
+
+        
+        img, div.responsive-image{
+            float:left;
+            width: 45%;
+            border:solid 1px #fff;
+        }
+        div.responsive-image{
+            background: no-repeat center center;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            height: 150px;
+        }
+
+        .clear{clear:both;}
+
+    </style>
+</head>
+<body>
+    <h1>jQuery.responsiveImageLoader</h1>
+    <b>The problem</b><br />
+    The problem with responsive websites is that they load 
+    one image file for desktop and mobile users. 
+    So mobile users have to load a large desktop image while it will be 
+    scaled down to a small size. This makes the page slow to load on mobile devices.<br />
+    <br />
+    <b>What this plugin does</b><br />
+    With this plugin you can tell the browser which image to load.
+    So mobile users load a small image and desktop image load a large image.
+    When desktop users use a small window and resize it to a larger one
+    the plugin will check if it needs to load a larger image file.<br />
+    <br />
+    <b>Setup</b><br />
+    <ol>
+        <li>Include jquery if you already haven't</li>
+        <li>Include jquery.responsiveImageLoader.js</li>
+        <li>Add the "responsive-image" class to images you want to handle</li>
+        <li>Add html5 data attributes to the tag <br />
+            'data-ri-[minScreenWidth]-[src or background]="[filename]"'<br />
+        </li>
+    </ol>
+    <b>Code Example</b><br />
+    &lt;img class='responsive-image' <br />
+    &nbsp;&nbsp;&nbsp;&nbsp; data-ri-0-src='images/turtle-small.jpg'<br />
+    &nbsp;&nbsp;&nbsp;&nbsp; data-ri-768-src='images/turtle-large.jpg'&gt;
+    <br />
+    <br />
+    <b>Image src demo:</b><br />
+    - From 0 to 768 pixels small files will be loaded<br />
+    - From 786 and higher large files will be loaded<br />
+    <br />
+    <img class="responsive-image"
+            data-ri-0-src="images/fish-small.jpg"
+            data-ri-768-src="images/fish-large.jpg">
+    <img class="responsive-image"
+            data-ri-0-src="images/turtle-small.jpg"
+            data-ri-768-src="images/turtle-large.jpg">
+    <div class="clear"></div>
+    <br />
+    <b>CSS background-image demo</b><br />
+    - From 0 to 768 pixels small files will be loaded<br />
+    - From 786 and higher large files will be loaded<br />
+    <br />
+    <div class="responsive-image"
+            data-ri-0-background="images/fish-small.jpg"
+            data-ri-768-background="images/fish-large.jpg"></div>
+    <div class="responsive-image"
+        data-ri-0-background="images/turtle-small.jpg"
+        data-ri-768-background="images/turtle-large.jpg"></div>
+    <div class="clear"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="../src/jquery.responsiveImageLoader.js"></script>
+</body>
+</html>
